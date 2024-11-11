@@ -38,6 +38,36 @@ public class PlanificacionRESTController {
                             .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/cruce/{idCruce}")
+    public ResponseEntity<List<Planificacion>> getPlanificacionesByIdCruce(@PathVariable Long idCruce){
+        List<Planificacion> planificacionesCruce = this.planificacionService.getPlanificacionesByIdCruce(idCruce);
+        if(planificacionesCruce.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(planificacionesCruce, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/finca/{idFinca}")
+    public ResponseEntity<List<Planificacion>> getPlanificacionesByIdFinca(@PathVariable Long idFinca){
+        List<Planificacion> planificacionesFinca = this.planificacionService.getPlanificacionesByIdFinca(idFinca);
+        if(planificacionesFinca.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(planificacionesFinca, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/usuario/{idUsuario}")
+    public ResponseEntity<List<Planificacion>> getPlanificacionesByIdUsuario(@PathVariable Long idUsuario){
+        List<Planificacion> planificacionesUsuario = this.planificacionService.getPlanificacionesByIdUsuario(idUsuario);
+        if(planificacionesUsuario.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(planificacionesUsuario, HttpStatus.OK);
+        }
+    }
+
     @PostMapping
     public ResponseEntity<Planificacion> savePlanificacion(@RequestBody Planificacion planificacion) {
         Planificacion planificacionCreada = this.planificacionService.savePlanificacion(planificacion);

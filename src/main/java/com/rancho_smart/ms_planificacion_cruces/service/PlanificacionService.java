@@ -18,6 +18,18 @@ public class PlanificacionService {
     public List<Planificacion> getPlanificaciones() {
         return this.planificacionRepository.findAll();
     }
+  
+    public List<Planificacion> getPlanificacionesByIdCruce(Long idCruce){
+        return this.planificacionRepository.findByIdCruce(idCruce);
+    }
+
+    public List<Planificacion> getPlanificacionesByIdFinca(Long idFinca){
+        return this.planificacionRepository.findByIdFinca(idFinca);
+    }
+
+    public List<Planificacion> getPlanificacionesByIdUsuario(Long idUsuario){
+        return this.planificacionRepository.findByIdUsuario(idUsuario);
+    }
 
     public Optional<Planificacion> getPlanificacionById(Long id) {
         return this.planificacionRepository.findById(id);

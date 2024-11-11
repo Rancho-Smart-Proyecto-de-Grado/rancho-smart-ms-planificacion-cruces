@@ -26,13 +26,17 @@ public class Planificacion {
     @Column(name = "ID_USUARIO")
     private Long idUsuario;
 
-    public Planificacion() {
-    }
+    @Column(name = "ID_FINCA")
+    private Long idFinca;
 
-    public Planificacion(Long idCruce, LocalDateTime fecha, Long idUsuario) {
+    public Planificacion() {
+    }   
+
+    public Planificacion(Long idCruce, LocalDateTime fecha, Long idUsuario, Long idFinca) {
         this.idCruce = idCruce;
         this.fecha = fecha;
         this.idUsuario = idUsuario;
+        this.idFinca = idFinca;
     }
 
     public Long getIdPlanificacion() {
@@ -65,6 +69,18 @@ public class Planificacion {
 
     public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+
+
+    public Long getIdFinca() {
+        return idFinca;
+    }
+
+
+
+    public void setIdFinca(Long idFinca) {
+        this.idFinca = idFinca;
     }
 
     
